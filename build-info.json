@@ -26,8 +26,8 @@
       "bytes": 40003953
     },
     "index.html": {
-      "sha256": "4a26bedb99f07e3c6d2dae4c00f9293a9f8d8370333e59fcf089cd2ecbf16b78",
-      "bytes": 3519
+      "sha256": "816d0ab084af6776579c241862624d0423a061ce1bb36c0d79973fc322391960",
+      "bytes": 3555
     }
   },
   "packaging": "Audited Brotli inputs decompressed byte-for-byte; content-hashed filenames and relative URLs for GitHub Pages. No game rebuild or gameplay change."
