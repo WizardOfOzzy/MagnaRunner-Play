@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MagnaRunner</title>
+    <style>
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #080c19; }
+      #unity-canvas { display: block; width: 100%; height: 100%; touch-action: none; outline: none; }
+      #loading { position: fixed; inset: 0; display: grid; place-content: center; gap: 1rem;
+        padding: 2rem; color: #e4f5ff; background: #080c19; font: 1rem system-ui, sans-serif;
+        text-align: center; overflow-wrap: anywhere; }
+      #loading[hidden] { display: none; }
+      progress { width: min(18rem, 75vw); accent-color: #7ee5de; }
+    </style>
+  </head>
+  <body>
+    <!-- Unity's camera owns portrait letterboxing and the playable bounds. -->
+    <canvas id="unity-canvas" width="960" height="600" tabindex="0"
+      aria-label="MagnaRunner playable prototype"></canvas>
+    <div id="loading" role="status" aria-live="polite">
+      <span id="loading-message">Loading prototype…</span>
+      <progress id="progress" max="1" value="0" aria-label="Loading progress"></progress>
+    </div>
+    <script>
+      const canvas = document.getElementById("unity-canvas");
+      const loading = document.getElementById("loading");
+      const message = document.getElementById("loading-message");
+      const progress = document.getElementById("progress");
+      function showLoadError(detail) {
+        loading.hidden = false;
+        message.textContent = "Unable to load the prototype. Reload to try again. " + String(detail);
+        progress.hidden = true;
+        console.error(detail);
+      }
+      const config = {
+        arguments: [],
+        dataUrl: "Build/game.29b97bdfa3a72dfd.data",
+        frameworkUrl: "Build/game.9cfef5dd444cffa0.framework.js",
+        codeUrl: "Build/game.c0d7f5cf8e70a35f.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "MagnaRunner",
+        productVersion: "1.0",
+        matchWebGLToCanvasSize: true,
+        showBanner: (detail, type) => {
+          if (type === "error") showLoadError(detail);
+          else console.warn(detail);
+        }
+      };
+      const loader = document.createElement("script");
+      loader.src = "Build/game.571ccc1765d1512f.loader.js";
+      loader.onerror = () => showLoadError("The Unity loader could not be downloaded.");
+      loader.onload = () => {
+        createUnityInstance(canvas, config, value => { progress.value = value; })
+          .then(instance => {
+            const pause = () => instance.SendMessage("First Playable", "OnWebFocusLost");
+            const regainFocus = () => {
+              if (!document.hidden && document.hasFocus()) {
+                instance.SendMessage("First Playable", "OnWebFocusGained");
+              }
+            };
+            window.addEventListener("blur", pause);
+            canvas.addEventListener("blur", pause);
+            window.addEventListener("focus", regainFocus);
+            canvas.addEventListener("focus", regainFocus);
+            document.addEventListener("visibilitychange", () => {
+              if (document.hidden) pause();
+              else regainFocus();
+            });
+            loading.hidden = true;
+          })
+          .catch(showLoadError);
+      };
+      document.body.appendChild(loader);
+    </script>
+  </body>
+</html>
