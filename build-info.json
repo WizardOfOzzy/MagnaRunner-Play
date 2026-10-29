@@ -1,33 +1,40 @@
 {
   "game": "MagnaRunner",
-  "sourceCommit": "6a4357aa9041109115ef9d5cecad33fee157e167",
+  "channel": "beta",
+  "buildChannel": {
+    "channel": "release",
+    "scriptingDefine": "MAGNARUNNER_RELEASE",
+    "contentReview": false
+  },
+  "sourceCommit": "30d3fb152bb5e560de06b62c974aed3cc75d4471",
   "sourceArtifactSHA256": {
-    "Build/Web.data.br": "5bd8e8652059c292580e0625ca61885ffab1684aa54c8c6c761f91b0bc3ea73a",
-    "Build/Web.framework.js.br": "52f1edd65bd4f740218a2abde2e4e646554320e8c52eb0a82d8c88f66c898221",
-    "Build/Web.loader.js": "571ccc1765d1512f3e90ba39c29643224a891ec8936b1ccaffeead6d4f4b2840",
-    "Build/Web.wasm.br": "c15305ab2cc4e37657f151bd43a14cddffa30f349c4386012aa9a69755dc7712",
-    "index.html": "b72ef57b52bc808c936f94c308d950657993daf98de81bb32a54601bf5e32ce2"
+    "index.html": "a1c674ce84a25c090173b1d25ccced2dc9f2b102ef0a20546e90f7ca4f524e46",
+    "build-channel.json": "8dcdf68070d2da795ca6493e759827bd6b2d7b59b36b84f893235b304fdff90e",
+    "Build/Web-smooth-course-20261029-release.wasm.br": "886adec6805e2e369a149dfccf5fc958347aed9f052806fad58daa0a3fc464d0",
+    "Build/Web-smooth-course-20261029-release.data.br": "68a5798a25cc5ce58e0b5c3c65804e84e8b8d679157a88ddecbee265b6a94c3f",
+    "Build/Web-smooth-course-20261029-release.loader.js": "b471e2941018b9cecb17062d9679fa3051fa750cb69379d1c4d2cd52e891a88b",
+    "Build/Web-smooth-course-20261029-release.framework.js.br": "50d5de43694c17c048ec97832b507c851cf2fc9f14c06eee2dfbdfc473525a25"
   },
   "files": {
-    "Build/game.571ccc1765d1512f.loader.js": {
-      "sha256": "571ccc1765d1512f3e90ba39c29643224a891ec8936b1ccaffeead6d4f4b2840",
+    "Build/game.b471e2941018b9ce.loader.js": {
+      "sha256": "b471e2941018b9cecb17062d9679fa3051fa750cb69379d1c4d2cd52e891a88b",
       "bytes": 27675
     },
-    "Build/game.9cfef5dd444cffa0.framework.js": {
-      "sha256": "9cfef5dd444cffa0fbf56f1fa365b394ba359bde7694be3ba8a66aa99be73cc7",
-      "bytes": 412790
+    "Build/game.a3e3a703479d77e4.framework.js": {
+      "sha256": "a3e3a703479d77e4cf716f93e60149662428ac9934c565d863b0aaf574b490ca",
+      "bytes": 414045
     },
-    "Build/game.29b97bdfa3a72dfd.data": {
-      "sha256": "29b97bdfa3a72dfd054aa25f7765e2e9c21792e53d209862f523b3d868e5501a",
-      "bytes": 11830163
+    "Build/game.b91bf1e662a840f6.data": {
+      "sha256": "b91bf1e662a840f672a1b9be60858a165f68b397f24a8aa1befe05c098eed606",
+      "bytes": 12012428
     },
-    "Build/game.c0d7f5cf8e70a35f.wasm": {
-      "sha256": "c0d7f5cf8e70a35f26b1aea468bb0d43733abc71116d0cb549d37039eabdabb6",
-      "bytes": 40003953
+    "Build/game.2f6907d903556c7d.wasm": {
+      "sha256": "2f6907d903556c7d0fcde1258d699e385863748b5b04cce5e0154fd739163ffd",
+      "bytes": 40099168
     },
     "index.html": {
-      "sha256": "816d0ab084af6776579c241862624d0423a061ce1bb36c0d79973fc322391960",
-      "bytes": 3555
+      "sha256": "68ce25ae38e9d9237398539064cf3a99f9c083611a4ab805d1f311c372982378",
+      "bytes": 3564
     }
   },
   "packaging": "Audited Brotli inputs decompressed byte-for-byte; content-hashed filenames and relative URLs for GitHub Pages. No game rebuild or gameplay change."
